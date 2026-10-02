@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="https://publicisgroupetw-halloween.powerappsportals.com/logo.png">
+<meta property="og:title" content="陽獅集團100週年萬聖節活動《獅紀》">
+<meta property="og:description" content="誠摯邀請您參加，立即報名掌握活動最新資訊">
+<meta property="og:image" content="https://publicisgroupetw-halloween.powerappsportals.com/logologo.png">
+<meta property="og:type" content="website">
+<title>陽獅集團100週年萬聖節活動《獅紀》</title>
+<style>
+
+.event-page-wrapper *{ box-sizing: border-box; margin:0; padding:0; }
+
+.event-page-wrapper{
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft YaHei", sans-serif;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.event-page-wrapper img{ display:block; max-width:100%; }
+.event-page-wrapper section{ position: relative; width: 100%; }
+
+/* 1. 頂端 LOGO 區 */
+.event-page-wrapper .section-logo{
+  background-color: #000000 !important;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.event-page-wrapper .section-logo img{
+  height: 70%;
+  width: auto;
+  object-fit: contain;
+}
+@media (max-width: 768px){
+  .event-page-wrapper .section-logo{ height: 80px; }
+}
+
+/* 2. 滿版活動預告影片區 */
+.event-page-wrapper .section-hero{
+  background-color: #000000 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+.event-page-wrapper .hero-media-wrap{
+  width: 100%;
+  height: 85vh;
+  position: relative;
+  overflow: hidden;
+}
+.event-page-wrapper .section-hero .hero-media{
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.event-page-wrapper .hero-cta-wrap{
+  padding: 40px 0 56px;
+  background-color: #000000 !important;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.event-page-wrapper .btn-cta{
+  background-color: rgba(130, 132, 0, 0.8) !important;
+  color: rgba(255,255,255,1) !important;
+  border: none;
+  padding: 16px 48px;
+  border-radius: 999px;
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .3s ease, box-shadow .3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+.event-page-wrapper .btn-cta:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(130,132,0,.4);
+}
+@media (max-width: 768px){
+.event-page-wrapper .hero-media-wrap{ height: 70vh; }
+.event-page-wrapper .btn-cta{ padding: 18px 46px; font-size: 16px; letter-spacing: 2px; }
+.event-page-wrapper .hero-cta-wrap{ margin-bottom: 28px; }
+}
+
+/* 3 & 4. 主題卡片輪播區 */
+.event-page-wrapper .section-theme{
+background-color: #000000 !important;
+padding: 130px 5% 110px;
+position: relative;
+}
+.event-page-wrapper .section-theme::after{
+content: '';
+position: absolute;
+top: 130px;
+right: 0;
+bottom: 134px;
+width: 80px;
+background: linear-gradient(to right, transparent, #000000);
+pointer-events: none;
+}
+@media (max-width: 768px){
+.event-page-wrapper .section-theme::after{
+display: none;
+}
+}
+.event-page-wrapper .theme-title{
+  text-align: center;
+  font-size: 2.4rem;
+  letter-spacing: 6px;
+  margin-bottom: 56px;
+  font-weight: 500;
+  color: #ffffff !important;
+}
+.event-page-wrapper .card-carousel{
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 24px;
+  -webkit-overflow-scrolling: touch;
+}
+.event-page-wrapper .card-carousel::-webkit-scrollbar{ height: 6px; }
+.event-page-wrapper .card-carousel::-webkit-scrollbar-thumb{
+  background-color: rgba(255,255,255,.3);
+  border-radius: 3px;
+}
+.event-page-wrapper .card{
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  flex-direction: column;
+}
+.event-page-wrapper .card img{
+  width: 100%;
+  height: 62%;
+  object-fit: cover;
+}
+.event-page-wrapper .card .card-text{
+  flex: 1;
+  padding: 18px 20px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.event-page-wrapper .theme1 .card{ background-color: rgba(125, 0, 114, 0.8) !important; }
+.event-page-wrapper .theme1 .card .card-text{ color: rgba(255,255,255,1) !important; }
+.event-page-wrapper .theme2 .card{ background-color: rgba(130, 132, 0, 0.8) !important; }
+.event-page-wrapper .theme2 .card .card-text{ color: rgba(255,255,255,1) !important; }
+
+@media (max-width: 768px){
+.event-page-wrapper .section-theme{ padding: 70px 5% 60px; }
+.event-page-wrapper .theme-title{ font-size: 1.6rem; letter-spacing: 3px; margin-bottom: 36px; }
+.event-page-wrapper .card{ flex: 0 0 269px; }
+.event-page-wrapper .card .card-text{ font-size: 1.15rem; }
+}
+
+/* 5. 背景圖 A 滾動說故事區 */
+.event-page-wrapper .section-story{
+  position: relative;
+  height: 220vh;
+  background-color: #000000 !important;
+}
+.event-page-wrapper .story-sticky{
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.event-page-wrapper .story-text-wrap{
+  position: absolute;
+  right: 6%;
+  top: 25%;
+  transform: translateY(-50%);
+  width: 65%;
+  max-width: 680px;
+}
+.event-page-wrapper .story-text-img{
+  position: absolute !important;
+  top: 0 !important; left: 0 !important;
+  width: 100% !important;
+  opacity: 0 !important;
+  transform: translateY(40px) !important;
+  transition: opacity .7s ease, transform .7s ease !important;
+}
+.event-page-wrapper .story-text-img.is-active{
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.event-page-wrapper .story-text-img.is-exit{
+  opacity: 0 !important;
+  transform: translateY(-60px) !important;
+}
+@media (max-width: 768px){
+.event-page-wrapper .section-story{ height: auto; }
+.event-page-wrapper .story-sticky{
+position: relative;
+height: auto;
+min-height: 100vh;
+background-size: 333% auto;
+background-position: 30% center;
+padding: 80px 0;
+}
+.event-page-wrapper .story-text-wrap{
+position: static;
+transform: none;
+width: 94%;
+margin: 0 auto 24px;
+background-color: rgba(0, 0, 0, 0.55);
+border-radius: 16px;
+padding: 24px 20px;
+text-align: center;
+}
+.event-page-wrapper .story-text-img{
+position: static !important;
+opacity: 1 !important;
+transform: none !important;
+margin-bottom: 24px;
+}
+.event-page-wrapper .story-text-img:last-child{
+margin-bottom: 0;
+}
+}
+
+/* 6. Registration Form 區（改為嵌入 Microsoft Forms） */
+.event-page-wrapper .section-form{
+  background-color: #0d0d0d !important;
+  padding: 100px 5%;
+}
+.event-page-wrapper .form-title{
+  text-align: center;
+  font-size: 1.8rem;
+  letter-spacing: 4px;
+  margin-bottom: 44px;
+  color: #ffffff !important;
+}
+.event-page-wrapper .form-card{
+  max-width: 640px;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 24px;
+  padding: 24px;
+  backdrop-filter: blur(6px);
+}
+.event-page-wrapper .forms-embed-wrap{
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+}
+.event-page-wrapper .forms-embed-wrap iframe{
+  width: 100%;
+  height: 900px;
+  border: none;
+  display: block;
+}
+
+@media (max-width: 768px){
+.event-page-wrapper .form-card{ padding: 16px; }
+.event-page-wrapper .form-title{ font-size: 1.28rem; letter-spacing: 2px; margin-bottom: 36px; }
+.event-page-wrapper .forms-embed-wrap iframe{ height: 1100px; }
+}
+
+html, body{
+  background-color: #000000 !important;
+}
+
+</style>
+</head>
+<body>
+
+<div class="event-page-wrapper">
+
+  <!-- 1. 頂端 LOGO 區 -->
+  <section class="section-logo">
+    <img src="https://publicisgroupetw-halloween.powerappsportals.com/logologo.png" alt="集團 Logo" />
+  </section>
+
+  <!-- 2. 滿版活動預告影片區 -->
+  <section class="section-hero">
+    <div class="hero-media-wrap">
+      <video class="hero-media" src="https://publicisgroupetw-halloween.powerappsportals.com/video.mp4" autoplay muted loop playsinline></video>
+    </div>
+    <div class="hero-cta-wrap">
+      <button type="button" id="scrollToRegistrationBtn" class="btn-cta">立即報名</button>
+    </div>
+  </section>
+
+  <!-- 3. 主題一：《獅紀：百變》卡片輪播 -->
+  <section class="section-theme theme1">
+    <h2 class="theme-title">《獅紀：百變》</h2>
+    <div class="card-carousel">
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/09/2f/d4/092fd47542d0e7343dd54ca3271f61d0.jpg" alt="百變活動一" loading="lazy" />
+        <div class="card-text">美食饗宴<br>1~2F 太陽廳</div>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/09/2f/d4/092fd47542d0e7343dd54ca3271f61d0.jpg" alt="百變活動二" loading="lazy" />
+        <div class="card-text">360度拍照體驗<br>5F</div>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/09/2f/d4/092fd47542d0e7343dd54ca3271f61d0.jpg" alt="百變活動三" loading="lazy" />
+        <div class="card-text">試膽體驗<br>5F 後台</div>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/09/2f/d4/092fd47542d0e7343dd54ca3271f61d0.jpg" alt="百變活動四" loading="lazy" />
+        <div class="card-text">現場占卜<br>5F 包廂</div>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/09/2f/d4/092fd47542d0e7343dd54ca3271f61d0.jpg" alt="百變活動五" loading="lazy" />
+        <div class="card-text">變裝似顏繪<br>5F 包廂</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 主題二：《獅紀：無界》卡片輪播 -->
+  <section class="section-theme theme2">
+    <h2 class="theme-title">《獅紀：無界》</h2>
+    <div class="card-carousel">
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/66/5f/ad/665fad779c56ac11b71cc051272db5d3.jpg" alt="無界活動一" loading="lazy" />
+        <div class="card-text">識人 無界<br>Beyond Persona</div>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/66/5f/ad/665fad779c56ac11b71cc051272db5d3.jpg" alt="無界活動二" loading="lazy" />
+        <div class="card-text">實現 無界<br>Beyond Imagination</div>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/66/5f/ad/665fad779c56ac11b71cc051272db5d3.jpg" alt="無界活動三" loading="lazy" />
+        <div class="card-text">共感 無界<br>Beyond Variations</div>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/66/5f/ad/665fad779c56ac11b71cc051272db5d3.jpg" alt="無界活動四" loading="lazy" />
+        <div class="card-text">協作 無界<br>Beyond Process</div>
+      </div>
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/66/5f/ad/665fad779c56ac11b71cc051272db5d3.jpg" alt="無界活動五" loading="lazy" />
+        <div class="card-text">專業 無界<br>Beyond Expertise</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 背景圖 A 滾動說故事區 -->
+  <section class="section-story">
+    <div class="story-sticky" style="background-image: url('https://publicisgroupetw-halloween.powerappsportals.com/%E8%83%8C%E6%99%AFA.png');">
+      <div class="story-text-wrap">
+        <img id="storyText1" class="story-text-img is-active" src="https://publicisgroupetw-halloween.powerappsportals.com/%E5%9C%B0%E5%9D%80%E6%99%82%E9%96%93-%E6%96%87%E5%AD%97.png" alt="活動地址時間" />
+        <img id="storyText2" class="story-text-img" src="https://publicisgroupetw-halloween.powerappsportals.com/%E6%B4%BB%E5%8B%95%E6%B5%81%E7%A8%8B-%E6%96%87%E5%AD%97.png" alt="活動流程" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Registration Form 區：改為嵌入 Microsoft Forms -->
+  <section id="registration" class="section-form">
+    <h2 class="form-title">立即報名</h2>
+    <div class="form-card">
+      <div class="forms-embed-wrap">
+        <iframe src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=oZ4s1SF8sUeCozOnSx90uPCPgdHNjrZLs_iEKqVseXhURDFJNlNDTUpZTDJQTjRCMjcxVkE1NFRUSC4u&embed=true" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen>
+          您的瀏覽器不支援 iFrame。
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+
+  // ============================================
+  // 第 5 區：背景圖滾動說故事效果
+  // ============================================
+  var section = document.querySelector('.section-story');
+  var text1 = document.getElementById('storyText1');
+  var text2 = document.getElementById('storyText2');
+
+  function showText(el){
+    el.style.setProperty('opacity', '1', 'important');
+    el.style.setProperty('transform', 'translateY(0px)', 'important');
+  }
+  function hideTextUp(el){
+    el.style.setProperty('opacity', '0', 'important');
+    el.style.setProperty('transform', 'translateY(-60px)', 'important');
+  }
+  function hideTextDown(el){
+    el.style.setProperty('opacity', '0', 'important');
+    el.style.setProperty('transform', 'translateY(40px)', 'important');
+  }
+
+  function updateStoryText(){
+    if(!section || !text1 || !text2) return;
+    var rect = section.getBoundingClientRect();
+    var sectionHeight = section.offsetHeight;
+    var viewportHeight = window.innerHeight;
+    var scrolled = -rect.top;
+    var scrollable = sectionHeight - viewportHeight;
+    var progress = scrollable > 0 ? scrolled / scrollable : 0;
+    progress = Math.max(0, Math.min(1, progress));
+
+    if(progress < 0.5){
+      showText(text1);
+      hideTextDown(text2);
+    } else {
+      hideTextUp(text1);
+      showText(text2);
+    }
+  }
+
+  if(text1) text1.style.setProperty('transition', 'opacity .7s ease, transform .7s ease', 'important');
+  if(text2) text2.style.setProperty('transition', 'opacity .7s ease, transform .7s ease', 'important');
+
+  function isMobile(){
+    return window.innerWidth <= 768;
+  }
+
+  if(!isMobile()){
+    window.addEventListener('scroll', updateStoryText, { passive: true });
+    window.addEventListener('resize', updateStoryText);
+    updateStoryText();
+  } else {
+    if(text1){
+      text1.style.removeProperty('opacity');
+      text1.style.removeProperty('transform');
+    }
+    if(text2){
+      text2.style.removeProperty('opacity');
+      text2.style.removeProperty('transform');
+    }
+  }
+
+  // ============================================
+  // 第 2 區：CTA 按鈕，點擊後平滑捲動到報名表單區
+  // ============================================
+  var ctaBtn = document.getElementById('scrollToRegistrationBtn');
+  if(ctaBtn){
+    ctaBtn.addEventListener('click', function(){
+      var target = document.getElementById('registration');
+      if(target){
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+});
+</script>
+
+</body>
+</html>
