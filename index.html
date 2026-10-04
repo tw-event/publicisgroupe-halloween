@@ -154,6 +154,7 @@ display: none;
   font-size: 1.25rem;
   line-height: 1.5;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -163,13 +164,18 @@ display: none;
 .event-page-wrapper .theme2 .card{ background-color: rgba(205,87,31,1) !important; }
 .event-page-wrapper .theme2 .card .card-text{ color: rgba(255,255,255,1) !important; }
 
-/* 第4區卡片：第2、3行文字縮小 */
+/* 第4區卡片：第2、3行文字縮小，各自獨立成一行 */
 .event-page-wrapper .theme2 .card-sub{
   display: block;
-  font-size: 1.15rem;
+  width: 100%;
+  margin-top: 6px;
+}
+.event-page-wrapper .theme2 .card-sub-line{
+  display: block;
+  width: 100%;
+  font-size: 0.75rem;
   line-height: 1.4;
   opacity: 0.9;
-  margin-top: 6px;
 }
 
 @media (max-width: 768px){
@@ -177,7 +183,7 @@ display: none;
 .event-page-wrapper .theme-title{ font-size: 1.6rem; letter-spacing: 3px; margin-bottom: 36px; }
 .event-page-wrapper .card{ flex: 0 0 269px; }
 .event-page-wrapper .card .card-text{ font-size: 1.15rem; }
-.event-page-wrapper .theme2 .card-sub{ font-size: 0.8rem; }
+.event-page-wrapper .theme2 .card-sub-line{ font-size: 0.68rem; }
 }
 
 /* 5. 背景圖 A 滾動說故事區 */
@@ -349,23 +355,23 @@ html, body{
     <div class="card-carousel">
       <div class="card">
         <img src="4-1-p.png" alt="無界活動一" loading="lazy" />
-        <div class="card-text">識人 無界<br>Beyond Persona<br><span class="card-sub">越過既定印象與標籤</span></div>
+        <div class="card-text">識人 無界<span class="card-sub"><span class="card-sub-line">Beyond Persona</span><span class="card-sub-line">越過既定印象與標籤</span></span></div>
       </div>
       <div class="card">
         <img src="4-2-i.png" alt="無界活動二" loading="lazy" />
-        <div class="card-text">實現 無界<br>Beyond Imagination<br><span class="card-sub">讓創意，不再受限於製作條件</span></div>
+        <div class="card-text">實現 無界<span class="card-sub"><span class="card-sub-line">Beyond Imagination</span><span class="card-sub-line">讓創意，不再受限於製作條件</span></span></div>
       </div>
       <div class="card">
         <img src="4-3-v.png" alt="無界活動三" loading="lazy" />
-        <div class="card-text">共感 無界<br>Beyond Variations<br><span class="card-sub">內容不再只有一個固定版本</span></div>
+        <div class="card-text">共感 無界<span class="card-sub"><span class="card-sub-line">Beyond Variations</span><span class="card-sub-line">內容不再只有一個固定版本</span></span></div>
       </div>
       <div class="card">
         <img src="4-4-p.png" alt="無界活動四" loading="lazy" />
-        <div class="card-text">協作 無界<br>Beyond Process<br><span class="card-sub">工作，也可以被重新設計</span></div>
+        <div class="card-text">協作 無界<span class="card-sub"><span class="card-sub-line">Beyond Process</span><span class="card-sub-line">工作，也可以被重新設計</span></span></div>
       </div>
       <div class="card">
         <img src="4-5-t.png" alt="無界活動五" loading="lazy" />
-        <div class="card-text">專業 無界<br>Beyond Expertise<br><span class="card-sub">不是我們有誰，而是問題需要誰</span></div>
+        <div class="card-text">專業 無界<span class="card-sub"><span class="card-sub-line">Beyond Expertise</span><span class="card-sub-line">不是我們有誰，而是問題需要誰</span></span></div>
       </div>
     </div>
   </section>
