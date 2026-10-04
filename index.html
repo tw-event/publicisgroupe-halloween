@@ -163,11 +163,19 @@ display: none;
 .event-page-wrapper .theme2 .card{ background-color: rgba(205,87,31,1) !important; }
 .event-page-wrapper .theme2 .card .card-text{ color: rgba(255,255,255,1) !important; }
 
+/* 第4區卡片：第2、3行文字縮小 */
+.event-page-wrapper .theme2 .card-sub{
+  font-size: 0.75rem;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
 @media (max-width: 768px){
 .event-page-wrapper .section-theme{ padding: 70px 5% 60px; }
 .event-page-wrapper .theme-title{ font-size: 1.6rem; letter-spacing: 3px; margin-bottom: 36px; }
 .event-page-wrapper .card{ flex: 0 0 269px; }
 .event-page-wrapper .card .card-text{ font-size: 1.15rem; }
+.event-page-wrapper .theme2 .card-sub{ font-size: 0.68rem; }
 }
 
 /* 5. 背景圖 A 滾動說故事區 */
@@ -339,23 +347,23 @@ html, body{
     <div class="card-carousel">
       <div class="card">
         <img src="4-1-p.png" alt="無界活動一" loading="lazy" />
-        <div class="card-text">識人 無界<br>Beyond Persona<br>越過既定印象與標籤</div>
+        <div class="card-text">識人 無界<br><span class="card-sub">Beyond Persona<br>越過既定印象與標籤</span></div>
       </div>
       <div class="card">
         <img src="4-2-i.png" alt="無界活動二" loading="lazy" />
-        <div class="card-text">實現 無界<br>Beyond Imagination<br>讓創意，不再受限於製作條件</div>
+        <div class="card-text">實現 無界<br><span class="card-sub">Beyond Imagination<br>讓創意，不再受限於製作條件</span></div>
       </div>
       <div class="card">
         <img src="4-3-v.png" alt="無界活動三" loading="lazy" />
-        <div class="card-text">共感 無界<br>Beyond Variations<br>內容不再只有一個固定版本</div>
+        <div class="card-text">共感 無界<br><span class="card-sub">Beyond Variations<br>內容不再只有一個固定版本</span></div>
       </div>
       <div class="card">
         <img src="4-4-p.png" alt="無界活動四" loading="lazy" />
-        <div class="card-text">協作 無界<br>Beyond Process<br>工作，也可以被重新設計</div>
+        <div class="card-text">協作 無界<br><span class="card-sub">Beyond Process<br>工作，也可以被重新設計</span></div>
       </div>
       <div class="card">
         <img src="4-5-t.png" alt="無界活動五" loading="lazy" />
-        <div class="card-text">專業 無界<br>Beyond Expertise<br>不是我們有誰，而是問題需要誰</div>
+        <div class="card-text">專業 無界<br><span class="card-sub">Beyond Expertise<br>不是我們有誰，而是問題需要誰</span></div>
       </div>
     </div>
   </section>
