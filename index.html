@@ -132,7 +132,7 @@ display: none;
 .event-page-wrapper .theme-title{ margin-bottom: 14px !important; }
 .event-page-wrapper .theme-subtitle{
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 300;
   letter-spacing: 2px;
   line-height: 1.6;
@@ -209,75 +209,55 @@ display: none;
 .event-page-wrapper .theme2 .card-sub-line{ font-size: 0.9rem; }
 }
 
-/* 5. 背景圖 A 滾動說故事區 */
+/* 5. 背景圖 A 區：桌機左右並排靜態顯示、手機上下堆疊 */
 .event-page-wrapper .section-story{
   position: relative;
-  height: 220vh;
   background-color: #000000 !important;
 }
 .event-page-wrapper .story-sticky{
-  position: sticky;
-  top: 0;
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
   width: 100%;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 100px 6%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 .event-page-wrapper .story-text-wrap{
-  position: absolute;
-  right: 6%;
-  top: 25%;
-  transform: translateY(-50%);
-  width: 65%;
-  max-width: 680px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6%;
 }
 .event-page-wrapper .story-text-img{
-  position: absolute !important;
-  top: 0 !important; left: 0 !important;
-  width: 100% !important;
-  opacity: 0 !important;
-  transform: translateY(40px) !important;
-  transition: opacity .7s ease, transform .7s ease !important;
-}
-.event-page-wrapper .story-text-img.is-active{
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-.event-page-wrapper .story-text-img.is-exit{
-  opacity: 0 !important;
-  transform: translateY(-60px) !important;
+  display: block;
+  width: 44%;
+  max-width: 640px;
+  height: auto;
 }
 @media (max-width: 768px){
-.event-page-wrapper .section-story{ height: auto; }
 .event-page-wrapper .story-sticky{
-position: relative;
-height: auto;
-min-height: 100vh;
-background-size: 333% auto;
-background-position: 30% center;
-padding: 80px 0;
+  background-size: 333% auto;
+  background-position: 30% center;
+  padding: 80px 0;
 }
 .event-page-wrapper .story-text-wrap{
-position: static;
-transform: none;
-width: 94%;
-margin: 0 auto 24px;
-background-color: rgba(0, 0, 0, 0.55);
-border-radius: 16px;
-padding: 24px 20px;
-text-align: center;
+  display: block;
+  width: 94%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.55);
+  border-radius: 16px;
+  padding: 24px 20px;
 }
 .event-page-wrapper .story-text-img{
-position: static !important;
-opacity: 1 !important;
-transform: none !important;
-margin-bottom: 24px;
+  width: 100%;
+  max-width: none;
+  margin-bottom: 24px;
 }
-.event-page-wrapper .story-text-img:last-child{
-margin-bottom: 0;
-}
+.event-page-wrapper .story-text-img:last-child{ margin-bottom: 0; }
 }
 
 /* 6. Registration Form 區（自訂表單 → Power Automate → SharePoint List） */
@@ -396,7 +376,7 @@ html, body{
   <!-- 3. 主題一：《獅紀：百變》卡片輪播 -->
   <section class="section-theme theme1">
     <h2 class="theme-title">《獅紀：百變》</h2>
-    <p class="theme-subtitle">有 吃 有 玩 還 能 拿</p>
+    <p class="theme-subtitle">百變副標題文字（請替換）</p>
     <div class="card-carousel">
       <div class="card">
         <img src="3-1-food.jpg" alt="百變活動一" loading="lazy" />
@@ -424,7 +404,7 @@ html, body{
   <!-- 4. 主題二：《獅紀：無界》卡片輪播 -->
   <section class="section-theme theme2">
     <h2 class="theme-title">《獅紀：無界》</h2>
-    <p class="theme-subtitle">五 大 AI 議 題 探 索</p>
+    <p class="theme-subtitle">無界副標題文字（請替換）</p>
     <div class="card-carousel">
       <div class="card">
         <img src="4-1-p.png" alt="無界活動一" loading="lazy" />
@@ -453,7 +433,7 @@ html, body{
   <section class="section-story">
     <div class="story-sticky" style="background-image: url('%E8%83%8C%E6%99%AFA.png');">
       <div class="story-text-wrap">
-        <img id="storyText1" class="story-text-img is-active" src="%E5%9C%B0%E5%9D%80%E6%99%82%E9%96%93-%E6%96%87%E5%AD%97.png" alt="活動地址時間" />
+        <img id="storyText1" class="story-text-img" src="%E5%9C%B0%E5%9D%80%E6%99%82%E9%96%93-%E6%96%87%E5%AD%97.png" alt="活動地址時間" />
         <img id="storyText2" class="story-text-img" src="%E6%B4%BB%E5%8B%95%E6%B5%81%E7%A8%8B-%E6%96%87%E5%AD%97.png" alt="活動流程" />
       </div>
     </div>
@@ -495,59 +475,6 @@ html, body{
 
 <script>
 document.addEventListener('DOMContentLoaded', function(){
-
-  // ============================================
-  // 第 5 區：背景圖滾動說故事效果
-  // ============================================
-  var section = document.querySelector('.section-story');
-  var text1 = document.getElementById('storyText1');
-  var text2 = document.getElementById('storyText2');
-
-  function showText(el){
-    el.style.setProperty('opacity', '1', 'important');
-    el.style.setProperty('transform', 'translateY(0px)', 'important');
-  }
-  function hideTextUp(el){
-    el.style.setProperty('opacity', '0', 'important');
-    el.style.setProperty('transform', 'translateY(-60px)', 'important');
-  }
-  function hideTextDown(el){
-    el.style.setProperty('opacity', '0', 'important');
-    el.style.setProperty('transform', 'translateY(40px)', 'important');
-  }
-
-  function updateStoryText(){
-    if(!section || !text1 || !text2) return;
-    var rect = section.getBoundingClientRect();
-    var scrolled = -rect.top;
-    var scrollable = section.offsetHeight - window.innerHeight;
-    var progress = scrollable > 0 ? scrolled / scrollable : 0;
-    progress = Math.max(0, Math.min(1, progress));
-
-    if(progress < 0.5){
-      showText(text1);
-      hideTextDown(text2);
-    } else {
-      hideTextUp(text1);
-      showText(text2);
-    }
-  }
-
-  if(text1) text1.style.setProperty('transition', 'opacity .7s ease, transform .7s ease', 'important');
-  if(text2) text2.style.setProperty('transition', 'opacity .7s ease, transform .7s ease', 'important');
-
-  if(window.innerWidth > 768){
-    window.addEventListener('scroll', updateStoryText, { passive: true });
-    window.addEventListener('resize', updateStoryText);
-    updateStoryText();
-  } else {
-    [text1, text2].forEach(function(el){
-      if(el){
-        el.style.removeProperty('opacity');
-        el.style.removeProperty('transform');
-      }
-    });
-  }
 
   // ============================================
   // 第 2 區：CTA 按鈕，點擊後平滑捲動到報名表單區
