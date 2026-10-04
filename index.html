@@ -49,16 +49,21 @@
 }
 .event-page-wrapper .hero-media-wrap{
   width: 100%;
-  height: 85vh;
   position: relative;
   overflow: hidden;
 }
-.event-page-wrapper .section-hero .hero-media{
-  position: absolute;
-  top: 0; left: 0;
+.event-page-wrapper .hero-media{
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
+}
+.event-page-wrapper .hero-media-desktop{
+  display: block;
+  aspect-ratio: 2384 / 1684;
+}
+.event-page-wrapper .hero-media-mobile{
+  display: none;
 }
 .event-page-wrapper .hero-cta-wrap{
   padding: 40px 0 56px;
@@ -86,7 +91,8 @@
   box-shadow: 0 12px 28px rgba(130,132,0,.4);
 }
 @media (max-width: 768px){
-.event-page-wrapper .hero-media-wrap{ height: 70vh; }
+.event-page-wrapper .hero-media-desktop{ display: none; }
+.event-page-wrapper .hero-media-mobile{display: block;aspect-ratio: 1024 / 1536;}
 .event-page-wrapper .btn-cta{ padding: 18px 46px; font-size: 16px; letter-spacing: 2px; }
 .event-page-wrapper .hero-cta-wrap{ margin-bottom: 28px; }
 }
@@ -314,12 +320,9 @@ html, body{
 
   <!-- 2. 滿版活動主視覺 -->
   <section class="section-hero">
-    <div class="hero-media-wrap">
-      <img src="2-pc.jpg" alt="活動KV" />
-    </div>
-    <div class="hero-cta-wrap">
-      <button type="button" id="scrollToRegistrationBtn" class="btn-cta">立即報名</button>
-    </div>
+   <div class="hero-media-wrap">
+   <img class="hero-media hero-media-desktop" src="2-pc.jpg" alt="活動<button type="button" id="scrollToRegistrationBtn" class="btn-cta">立即報名</button>
+   </div>
   </section>
 
   <!-- 3. 主題一：《獅紀：百變》卡片輪播 -->
