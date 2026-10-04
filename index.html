@@ -129,6 +129,20 @@ display: none;
   font-weight: 500;
   color: #ffffff !important;
 }
+.event-page-wrapper .theme-title{ margin-bottom: 14px !important; }
+.event-page-wrapper .theme-subtitle{
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  line-height: 1.6;
+  color: #9a9a9a !important;
+  margin-bottom: 56px;
+}
+@media (max-width: 768px){
+  .event-page-wrapper .theme-title{ margin-bottom: 10px !important; }
+  .event-page-wrapper .theme-subtitle{ font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 36px; }
+}
 .event-page-wrapper .card-carousel{
   display: flex;
   gap: 24px;
@@ -382,6 +396,7 @@ html, body{
   <!-- 3. 主題一：《獅紀：百變》卡片輪播 -->
   <section class="section-theme theme1">
     <h2 class="theme-title">《獅紀：百變》</h2>
+    <p class="theme-subtitle">有 吃 有 喝 還 能 拿</p>
     <div class="card-carousel">
       <div class="card">
         <img src="3-1-food.jpg" alt="百變活動一" loading="lazy" />
@@ -409,6 +424,7 @@ html, body{
   <!-- 4. 主題二：《獅紀：無界》卡片輪播 -->
   <section class="section-theme theme2">
     <h2 class="theme-title">《獅紀：無界》</h2>
+    <p class="theme-subtitle">五 大 AI 議 題 探 索</p>
     <div class="card-carousel">
       <div class="card">
         <img src="4-1-p.png" alt="無界活動一" loading="lazy" />
