@@ -39,7 +39,7 @@
   .event-page-wrapper .section-logo{ height: 80px; }
 }
 
-/* 2. 滿版活動預告影片區 */
+/* 2. 滿版活動主視覺區（靜態圖片，依裝置切換） */
 .event-page-wrapper .section-hero{
   background-color: #000000 !important;
   display: flex;
@@ -91,8 +91,11 @@
   box-shadow: 0 12px 28px rgba(130,132,0,.4);
 }
 @media (max-width: 768px){
-.event-page-wrapper .hero-media-desktop{ display: none; }
-.event-page-wrapper .hero-media-mobile{display: block;aspect-ratio: 1024 / 1536;}
+.event-page-wrapper .hero-media-desktop{ display: none !important; }
+.event-page-wrapper .hero-media-mobile{
+  display: block !important;
+  aspect-ratio: 1024 / 1536;
+}
 .event-page-wrapper .btn-cta{ padding: 18px 46px; font-size: 16px; letter-spacing: 2px; }
 .event-page-wrapper .hero-cta-wrap{ margin-bottom: 28px; }
 }
@@ -318,11 +321,15 @@ html, body{
     <img src="logologo.png" alt="集團 Logo" />
   </section>
 
-  <!-- 2. 滿版活動主視覺 -->
+  <!-- 2. 滿版活動主視覺區（靜態圖片，依裝置切換） -->
   <section class="section-hero">
-   <div class="hero-media-wrap">
-   <img class="hero-media hero-media-desktop" src="2-pc.jpg" alt="活動<button type="button" id="scrollToRegistrationBtn" class="btn-cta">立即報名</button>
-   </div>
+    <div class="hero-media-wrap">
+      <img class="hero-media hero-media-desktop" src="2-pc.jpg" alt="活動主視覺（桌機版）" />
+      <img class="hero-media hero-media-mobile" src="2-mb.png" alt="活動主視覺（手機版）" />
+    </div>
+    <div class="hero-cta-wrap">
+      <button type="button" id="scrollToRegistrationBtn" class="btn-cta">立即報名</button>
+    </div>
   </section>
 
   <!-- 3. 主題一：《獅紀：百變》卡片輪播 -->
