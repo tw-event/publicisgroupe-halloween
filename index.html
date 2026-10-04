@@ -266,7 +266,7 @@ margin-bottom: 0;
 }
 }
 
-/* 6. Registration Form 區（改為嵌入 Microsoft Forms） */
+/* 6. Registration Form 區（自訂表單 → Power Automate → SharePoint List） */
 .event-page-wrapper .section-form{
   background-color: #0d0d0d !important;
   padding: 100px 5%;
@@ -279,31 +279,78 @@ margin-bottom: 0;
   color: #ffffff !important;
 }
 .event-page-wrapper .form-card{
-  max-width: 640px;
+  max-width: 480px;
   margin: 0 auto;
   background-color: rgba(255,255,255,.04);
   border: 1px solid rgba(255,255,255,.15);
   border-radius: 24px;
-  padding: 24px;
+  padding: 44px 36px;
   backdrop-filter: blur(6px);
 }
-.event-page-wrapper .forms-embed-wrap{
-  width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #ffffff;
-}
-.event-page-wrapper .forms-embed-wrap iframe{
-  width: 100%;
-  height: 900px;
-  border: none;
+.event-page-wrapper .form-group{ margin-bottom: 22px; }
+.event-page-wrapper .form-group label{
   display: block;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  color: rgba(255,255,255,.8) !important;
+}
+.event-page-wrapper .form-group input{
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.25);
+  background-color: rgba(255,255,255,.05);
+  color: #ffffff !important;
+  font-size: 1rem;
+  font-family: inherit;
+}
+.event-page-wrapper .form-group input::placeholder{ color: rgba(255,255,255,.35); }
+.event-page-wrapper .form-group input:focus{
+  outline: none;
+  border-color: rgba(255,255,255,.6);
+}
+.event-page-wrapper .btn-submit{
+  width: 100%;
+  padding: 15px;
+  border-radius: 999px;
+  border: none;
+  background-color: rgba(180,76,35,1) !important;
+  color: #ffffff !important;
+  font-size: 15px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: inherit;
+  transition: transform .3s ease, opacity .3s ease;
+}
+.event-page-wrapper .btn-submit:hover{ transform: translateY(-2px); }
+.event-page-wrapper .btn-submit:disabled{ opacity: .6; cursor: wait; transform: none; }
+.event-page-wrapper .form-message{
+  display: none;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+.event-page-wrapper .form-message.is-success{
+  display: block;
+  background-color: rgba(76,175,80,.15);
+  border: 1px solid rgba(76,175,80,.5);
+  color: #8ee89a !important;
+}
+.event-page-wrapper .form-message.is-error{
+  display: block;
+  background-color: rgba(220,53,69,.15);
+  border: 1px solid rgba(220,53,69,.5);
+  color: #ff8a93 !important;
 }
 
 @media (max-width: 768px){
-.event-page-wrapper .form-card{ padding: 16px; }
+.event-page-wrapper .form-card{ padding: 28px 20px; }
 .event-page-wrapper .form-title{ font-size: 1.28rem; letter-spacing: 2px; margin-bottom: 36px; }
-.event-page-wrapper .forms-embed-wrap iframe{ height: 1100px; }
+.event-page-wrapper .form-group input{ font-size: 16px; }
 }
 
 html, body{
@@ -396,15 +443,35 @@ html, body{
     </div>
   </section>
 
-  <!-- 6. Registration Form 區：改為嵌入 Microsoft Forms -->
+  <!-- 6. Registration Form 區：自訂表單 → Power Automate → SharePoint List -->
   <section id="registration" class="section-form">
     <h2 class="form-title">立即報名</h2>
     <div class="form-card">
-      <div class="forms-embed-wrap">
-        <iframe src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=oZ4s1SF8sUeCozOnSx90uPCPgdHNjrZLs_iEKqVseXhURDFJNlNDTUpZTDJQTjRCMjcxVkE1NFRUSC4u&embed=true" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen>
-          您的瀏覽器不支援 iFrame。
-        </iframe>
-      </div>
+      <div id="formMessage" class="form-message"></div>
+      <form id="registrationForm" novalidate>
+        <input type="text" name="website" id="honeypot" style="position:absolute; left:-9999px; top:-9999px;" tabindex="-1" autocomplete="off">
+        <div class="form-group">
+          <label for="cnName">中文姓名</label>
+          <input type="text" id="cnName" name="cnName" placeholder="請輸入中文姓名" autocomplete="name" required />
+        </div>
+        <div class="form-group">
+          <label for="enName">英文姓名</label>
+          <input type="text" id="enName" name="enName" placeholder="請輸入英文姓名" autocomplete="name" required />
+        </div>
+        <div class="form-group">
+          <label for="company">公司名稱</label>
+          <input type="text" id="company" name="company" placeholder="請輸入公司名稱" autocomplete="organization" required />
+        </div>
+        <div class="form-group">
+          <label for="title">職稱</label>
+          <input type="text" id="title" name="title" placeholder="請輸入職稱" autocomplete="organization-title" required />
+        </div>
+        <div class="form-group">
+          <label for="email">信箱</label>
+          <input type="email" id="email" name="email" placeholder="請輸入 Email" autocomplete="email" required />
+        </div>
+        <button type="submit" class="btn-submit">確認報名</button>
+      </form>
     </div>
   </section>
 
@@ -436,10 +503,8 @@ document.addEventListener('DOMContentLoaded', function(){
   function updateStoryText(){
     if(!section || !text1 || !text2) return;
     var rect = section.getBoundingClientRect();
-    var sectionHeight = section.offsetHeight;
-    var viewportHeight = window.innerHeight;
     var scrolled = -rect.top;
-    var scrollable = sectionHeight - viewportHeight;
+    var scrollable = section.offsetHeight - window.innerHeight;
     var progress = scrollable > 0 ? scrolled / scrollable : 0;
     progress = Math.max(0, Math.min(1, progress));
 
@@ -455,23 +520,17 @@ document.addEventListener('DOMContentLoaded', function(){
   if(text1) text1.style.setProperty('transition', 'opacity .7s ease, transform .7s ease', 'important');
   if(text2) text2.style.setProperty('transition', 'opacity .7s ease, transform .7s ease', 'important');
 
-  function isMobile(){
-    return window.innerWidth <= 768;
-  }
-
-  if(!isMobile()){
+  if(window.innerWidth > 768){
     window.addEventListener('scroll', updateStoryText, { passive: true });
     window.addEventListener('resize', updateStoryText);
     updateStoryText();
   } else {
-    if(text1){
-      text1.style.removeProperty('opacity');
-      text1.style.removeProperty('transform');
-    }
-    if(text2){
-      text2.style.removeProperty('opacity');
-      text2.style.removeProperty('transform');
-    }
+    [text1, text2].forEach(function(el){
+      if(el){
+        el.style.removeProperty('opacity');
+        el.style.removeProperty('transform');
+      }
+    });
   }
 
   // ============================================
@@ -484,6 +543,73 @@ document.addEventListener('DOMContentLoaded', function(){
       if(target){
         target.scrollIntoView({ behavior: 'smooth' });
       }
+    });
+  }
+
+  // ============================================
+  // 第 6 區：報名表單送出 → Power Automate → SharePoint List
+  // ============================================
+  var FLOW_URL = "https://defaultd52c9ea17c2147b182a333a74b1f74.b8.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/9e1c1881ac414019be441114075e412f/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=IJY2fHMksIy_Ze84NjeJhlYKvE0kYt5dMaT9GixIozM";
+
+  var form = document.getElementById('registrationForm');
+  var msgBox = document.getElementById('formMessage');
+
+  function showMsg(text, ok){
+    msgBox.textContent = text;
+    msgBox.className = 'form-message ' + (ok ? 'is-success' : 'is-error');
+  }
+
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      // 防機器人：隱藏欄位有值就不送出
+      var honeypot = document.getElementById('honeypot');
+      if(honeypot && honeypot.value !== '') return;
+
+      var data = {
+        cnName: document.getElementById('cnName').value.trim(),
+        enName: document.getElementById('enName').value.trim(),
+        company: document.getElementById('company').value.trim(),
+        title: document.getElementById('title').value.trim(),
+        email: document.getElementById('email').value.trim()
+      };
+
+      if(!data.cnName || !data.enName || !data.company || !data.title || !data.email){
+        showMsg('⚠️ 請完整填寫所有欄位。', false);
+        return;
+      }
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)){
+        showMsg('⚠️ 信箱格式不正確，請再確認。', false);
+        return;
+      }
+
+      var btn = form.querySelector('.btn-submit');
+      btn.disabled = true;
+      btn.textContent = '送出中...';
+
+      fetch(FLOW_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function(res){
+        if(res.ok){
+          showMsg('✅ 報名成功，感謝您的參與！', true);
+          form.reset();
+        } else {
+          console.error('送出失敗，狀態碼：', res.status);
+          showMsg('⚠️ 報名失敗，請稍後再試一次。', false);
+        }
+      })
+      .catch(function(err){
+        console.error('發生錯誤：', err);
+        showMsg('⚠️ 網路連線異常，請稍後再試一次。', false);
+      })
+      .finally(function(){
+        btn.disabled = false;
+        btn.textContent = '確認報名';
+      });
     });
   }
 
