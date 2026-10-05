@@ -468,6 +468,10 @@ html, body{
           <label for="email">信箱</label>
           <input type="email" id="email" name="email" placeholder="請輸入 Email(必填)" autocomplete="email" required />
         </div>
+        <div class="form-group">
+          <label for="contact">服務窗口英文名</label>
+          <input type="text" id="contact" name="contact" placeholder="請輸入集團服務窗口英文名(必填)" required />
+        </div>
         <button type="submit" class="btn-submit">確認報名</button>
       </form>
     </div>
@@ -512,10 +516,11 @@ document.addEventListener('DOMContentLoaded', function(){
         enName: document.getElementById('enName').value.trim(),
         company: document.getElementById('company').value.trim(),
         title: document.getElementById('title').value.trim(),
-        email: document.getElementById('email').value.trim()
+        email: document.getElementById('email').value.trim(),
+        contact: document.getElementById('contact').value.trim()
       };
 
-      if(!data.cnName || !data.enName || !data.company || !data.title || !data.email){
+      if(!data.cnName || !data.enName || !data.company || !data.title || !data.email || !data.contact){
         showMsg('⚠️ 請完整填寫所有欄位。', false);
         return;
       }
