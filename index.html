@@ -22,22 +22,22 @@
 .event-page-wrapper img{ display:block; max-width:100%; }
 .event-page-wrapper section{ position: relative; width: 100%; }
 
-/* 1. 頂端 LOGO 區（高度縮小，拉近與第 2 區的距離） */
+/* 1. 頂端 LOGO 區（高度改由內容決定，下方只留少量空間） */
 .event-page-wrapper .section-logo{
   background-color: #000000 !important;
-  height: 90px;
-  padding-top: 10px;
+  padding: 18px 0 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .event-page-wrapper .section-logo img{
-  height: 80%;
+  height: 60px;
   width: auto;
   object-fit: contain;
 }
 @media (max-width: 768px){
-  .event-page-wrapper .section-logo{ height: 64px; padding-top: 8px; }
+  .event-page-wrapper .section-logo{ padding: 14px 0 8px; }
+  .event-page-wrapper .section-logo img{ height: 44px; }
 }
 
 /* 2. 滿版活動主視覺區（靜態圖片，依裝置切換） */
@@ -67,7 +67,7 @@
   display: none;
 }
 .event-page-wrapper .hero-cta-wrap{
-  padding: 40px 0 56px;
+  padding: 16px 0 56px;
   background-color: #000000 !important;
   width: 100%;
   display: flex;
@@ -99,7 +99,7 @@
   aspect-ratio: 1024 / 1536;
 }
 .event-page-wrapper .btn-cta{ padding: 18px 46px; font-size: 18px; letter-spacing: 2px; }
-.event-page-wrapper .hero-cta-wrap{ margin-bottom: 28px; }
+.event-page-wrapper .hero-cta-wrap{ padding: 12px 0 48px; }
 }
 
 /* 3 & 4. 主題區共用 */
@@ -220,7 +220,7 @@ pointer-events: none;
 }
 }
 
-/* 5. 地址時間 + 兩顆按鈕（桌機無背景、區塊縮小；手機保留背景圖） */
+/* 5. 地址時間 + 兩顆按鈕（桌機、手機都不使用背景圖） */
 .event-page-wrapper .section-story{
   position: relative;
   background-color: #000000 !important;
@@ -280,8 +280,19 @@ pointer-events: none;
   width: 100%;
 }
 .event-page-wrapper .story-text-img{ width: 100%; max-width: none; }
-.event-page-wrapper .story-btns{ width: 100%; gap: 14px; }
-.event-page-wrapper .btn-info{ padding: 18px 46px; font-size: 18px; letter-spacing: 2px; }
+.event-page-wrapper .story-btns{
+  width: auto;
+  align-items: center;
+  gap: 14px;
+}
+.event-page-wrapper .btn-info{
+  display: inline-block;
+  width: auto;
+  min-width: 220px;
+  padding: 18px 46px;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
 }
 
 /* 6. Registration Form 區（自訂表單 → Power Automate → SharePoint List） */
