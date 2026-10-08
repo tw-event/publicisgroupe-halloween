@@ -22,21 +22,22 @@
 .event-page-wrapper img{ display:block; max-width:100%; }
 .event-page-wrapper section{ position: relative; width: 100%; }
 
-/* 1. 頂端 LOGO 區 */
+/* 1. 頂端 LOGO 區（高度縮小，拉近與第 2 區的距離） */
 .event-page-wrapper .section-logo{
   background-color: #000000 !important;
-  height: 120px;
+  height: 90px;
+  padding-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .event-page-wrapper .section-logo img{
-  height: 70%;
+  height: 80%;
   width: auto;
   object-fit: contain;
 }
 @media (max-width: 768px){
-  .event-page-wrapper .section-logo{ height: 80px; }
+  .event-page-wrapper .section-logo{ height: 64px; padding-top: 8px; }
 }
 
 /* 2. 滿版活動主視覺區（靜態圖片，依裝置切換） */
@@ -219,7 +220,7 @@ pointer-events: none;
 }
 }
 
-/* 5. 背景圖 A 區：地址時間 + 兩顆按鈕 */
+/* 5. 地址時間 + 兩顆按鈕（桌機無背景、區塊縮小；手機保留背景圖） */
 .event-page-wrapper .section-story{
   position: relative;
   background-color: #000000 !important;
@@ -227,34 +228,29 @@ pointer-events: none;
 .event-page-wrapper .story-bg{
   position: relative;
   width: 100%;
-  aspect-ratio: 1024 / 683;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 60px 6%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 .event-page-wrapper .story-panel{
   display: flex;
   align-items: center;
-  gap: 40px;
-  background-color: rgba(0, 0, 0, 0.55);
-  border-radius: 16px;
-  padding: 32px 40px;
+  justify-content: center;
+  gap: 48px;
   max-width: 1000px;
   width: 100%;
 }
 .event-page-wrapper .story-text-img{
   display: block;
-  width: 60%;
+  width: 55%;
+  max-width: 560px;
   height: auto;
 }
 .event-page-wrapper .story-btns{
-  flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 18px;
 }
 .event-page-wrapper .btn-info{
@@ -263,10 +259,11 @@ pointer-events: none;
   background-color: #BCAB78 !important;
   color: #ffffff !important;
   text-decoration: none;
-  padding: 16px 24px;
+  padding: 16px 48px;
   border-radius: 999px;
-  font-size: 17px;
-  letter-spacing: 2px;
+  font-size: 18px;
+  letter-spacing: 3px;
+  white-space: nowrap;
   transition: transform .3s ease, box-shadow .3s ease;
 }
 .event-page-wrapper .btn-info:hover{
@@ -275,19 +272,23 @@ pointer-events: none;
 }
 @media (max-width: 768px){
 .event-page-wrapper .story-bg{
-  aspect-ratio: auto;
-  min-height: 100vh;
-  padding: 80px 0;
+  background-image: url('%E8%83%8C%E6%99%AFA.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 48px 0;
 }
 .event-page-wrapper .story-panel{
   flex-direction: column;
   gap: 24px;
   width: 94%;
   padding: 24px 20px;
+  background-color: rgba(0, 0, 0, 0.55);
+  border-radius: 16px;
 }
-.event-page-wrapper .story-text-img{ width: 100%; }
+.event-page-wrapper .story-text-img{ width: 100%; max-width: none; }
 .event-page-wrapper .story-btns{ width: 100%; gap: 14px; }
-.event-page-wrapper .btn-info{ font-size: 16px; padding: 15px 20px; }
+.event-page-wrapper .btn-info{ padding: 18px 46px; font-size: 18px; letter-spacing: 2px; }
 }
 
 /* 6. Registration Form 區（自訂表單 → Power Automate → SharePoint List） */
@@ -339,16 +340,19 @@ pointer-events: none;
   padding: 15px;
   border-radius: 999px;
   border: none;
-  background-color: rgba(180,76,35,1) !important;
+  background-color: #BCAB78 !important;
   color: #ffffff !important;
   font-size: 15px;
   letter-spacing: 3px;
   cursor: pointer;
   margin-top: 10px;
   font-family: inherit;
-  transition: transform .3s ease, opacity .3s ease;
+  transition: transform .3s ease, opacity .3s ease, box-shadow .3s ease;
 }
-.event-page-wrapper .btn-submit:hover{ transform: translateY(-2px); }
+.event-page-wrapper .btn-submit:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(188,171,120,.4);
+}
 .event-page-wrapper .btn-submit:disabled{ opacity: .6; cursor: wait; transform: none; }
 .event-page-wrapper .form-message{
   display: none;
@@ -403,7 +407,7 @@ html, body{
     </div>
   </section>
 
-  <!-- 3. 主題：《獅紀：無界》卡片輪播（原第 4 區，移到上方） -->
+  <!-- 3. 主題：《獅紀：無界》卡片輪播 -->
   <section class="section-theme theme2">
     <h2 class="theme-title">《獅紀：無界》</h2>
     <p class="theme-subtitle">五 大 AI 議 題 探 索</p>
@@ -431,7 +435,7 @@ html, body{
     </div>
   </section>
 
-  <!-- 4. 主題：《獅紀：百變》單張主圖（原第 3 區，移到下方） -->
+  <!-- 4. 主題：《獅紀：百變》單張主圖 -->
   <section class="section-theme theme1">
     <h2 class="theme-title">《獅紀：百變》</h2>
     <p class="theme-subtitle">活 動 精 心 策 劃 敬 請 期 待</p>
@@ -439,9 +443,9 @@ html, body{
     <img class="theme-single-img theme-single-mobile" src="n-4-mb.png" alt="獅紀：百變（手機版）" />
   </section>
 
-  <!-- 5. 背景圖 A 區：地址時間 + Google Map / 交通資訊按鈕 -->
+  <!-- 5. 地址時間 + Google Map / 交通資訊按鈕 -->
   <section class="section-story">
-    <div class="story-bg" style="background-image: url('%E8%83%8C%E6%99%AFA.png');">
+    <div class="story-bg">
       <div class="story-panel">
         <img class="story-text-img" src="%E5%9C%B0%E5%9D%80%E6%99%82%E9%96%93-%E6%96%87%E5%AD%97.png" alt="活動地址時間" />
         <div class="story-btns">
