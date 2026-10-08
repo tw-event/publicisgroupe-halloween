@@ -73,8 +73,8 @@
   justify-content: center;
 }
 .event-page-wrapper .btn-cta{
-  background-color: rgba(180,76,35,1) !important;
-  color: rgba(255,255,255,1) !important;
+  background-color: #BCAB78 !important;
+  color: #ffffff !important;
   border: none;
   padding: 16px 48px;
   border-radius: 999px;
@@ -85,10 +85,11 @@
   transition: transform .3s ease, box-shadow .3s ease;
   text-decoration: none;
   display: inline-block;
+  font-family: inherit;
 }
 .event-page-wrapper .btn-cta:hover{
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(130,132,0,.4);
+  box-shadow: 0 12px 28px rgba(188,171,120,.4);
 }
 @media (max-width: 768px){
 .event-page-wrapper .hero-media-desktop{ display: none !important; }
@@ -100,26 +101,11 @@
 .event-page-wrapper .hero-cta-wrap{ margin-bottom: 28px; }
 }
 
-/* 3 & 4. 主題卡片輪播區 */
+/* 3 & 4. 主題區共用 */
 .event-page-wrapper .section-theme{
 background-color: #000000 !important;
 padding: 130px 5% 110px;
 position: relative;
-}
-.event-page-wrapper .section-theme::after{
-content: '';
-position: absolute;
-top: 130px;
-right: 0;
-bottom: 134px;
-width: 80px;
-background: linear-gradient(to right, transparent, #000000);
-pointer-events: none;
-}
-@media (max-width: 768px){
-.event-page-wrapper .section-theme::after{
-display: none;
-}
 }
 .event-page-wrapper .theme-title{
   text-align: center;
@@ -137,6 +123,18 @@ display: none;
   line-height: 1.6;
   color: #9a9a9a !important;
   margin-bottom: 56px;
+}
+
+/* 3. 《獅紀：無界》卡片輪播（右側漸層提示） */
+.event-page-wrapper .theme2::after{
+content: '';
+position: absolute;
+top: 130px;
+right: 0;
+bottom: 134px;
+width: 80px;
+background: linear-gradient(to right, transparent, #000000);
+pointer-events: none;
 }
 .event-page-wrapper .card-carousel{
   display: flex;
@@ -178,11 +176,8 @@ display: none;
   justify-content: center;
   text-align: center;
 }
-.event-page-wrapper .theme1 .card{ background-color: rgba(72,37,114,1) !important; }
-.event-page-wrapper .theme1 .card .card-text{ color: rgba(255,255,255,1) !important; }
-.event-page-wrapper .theme2 .card{ background-color: rgba(205,87,31,1) !important; }
-.event-page-wrapper .theme2 .card .card-text{ color: rgba(255,255,255,1) !important; }
-
+.event-page-wrapper .theme2 .card{ background-color: #BCAB78 !important; }
+.event-page-wrapper .theme2 .card .card-text{ color: #ffffff !important; }
 .event-page-wrapper .theme2 .card-sub{
   display: block;
   width: 100%;
@@ -196,70 +191,103 @@ display: none;
   opacity: 0.9;
 }
 
+/* 4. 《獅紀：百變》單張主圖（依裝置切換） */
+.event-page-wrapper .theme-single-img{
+  display: block;
+  width: 100%;
+  max-width: 1024px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+.event-page-wrapper .theme-single-desktop{ aspect-ratio: 1024 / 723; }
+.event-page-wrapper .theme-single-mobile{ display: none; }
+
 @media (max-width: 768px){
 .event-page-wrapper .section-theme{ padding: 70px 5% 60px; }
+.event-page-wrapper .theme2::after{ display: none; }
 .event-page-wrapper .theme-title{ font-size: 1.6rem; letter-spacing: 3px; margin-bottom: 10px; }
 .event-page-wrapper .theme-subtitle{ font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 36px; }
 .event-page-wrapper .card{ flex: 0 0 269px; }
 .event-page-wrapper .card .card-text{ font-size: 1.15rem; }
 .event-page-wrapper .theme2 .card-sub-line{ font-size: 0.9rem; }
+.event-page-wrapper .theme-single-desktop{ display: none !important; }
+.event-page-wrapper .theme-single-mobile{
+  display: block !important;
+  max-width: 683px;
+  aspect-ratio: 683 / 1024;
+}
 }
 
-/* 5. 背景圖 A 區：桌機左右並排靜態顯示、手機上下堆疊 */
+/* 5. 背景圖 A 區：地址時間 + 兩顆按鈕 */
 .event-page-wrapper .section-story{
   position: relative;
   background-color: #000000 !important;
 }
-.event-page-wrapper .story-sticky{
+.event-page-wrapper .story-bg{
   position: relative;
-  min-height: 100vh;
   width: 100%;
+  aspect-ratio: 1024 / 683;
   display: flex;
   align-items: center;
-  padding: 100px 6%;
+  justify-content: center;
+  padding: 60px 6%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-.event-page-wrapper .story-text-wrap{
-  width: 100%;
+.event-page-wrapper .story-panel{
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 6%;
+  gap: 40px;
+  background-color: rgba(0, 0, 0, 0.55);
+  border-radius: 16px;
+  padding: 32px 40px;
+  max-width: 1000px;
+  width: 100%;
 }
 .event-page-wrapper .story-text-img{
   display: block;
-  width: 47%;
-  max-width: 640px;
+  width: 60%;
   height: auto;
-  background-color: rgba(0, 0, 0, 0.55);
-  border-radius: 16px;
-  padding: 28px;
+}
+.event-page-wrapper .story-btns{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.event-page-wrapper .btn-info{
+  display: block;
+  text-align: center;
+  background-color: #BCAB78 !important;
+  color: #ffffff !important;
+  text-decoration: none;
+  padding: 16px 24px;
+  border-radius: 999px;
+  font-size: 17px;
+  letter-spacing: 2px;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.event-page-wrapper .btn-info:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(188,171,120,.4);
 }
 @media (max-width: 768px){
-.event-page-wrapper .story-sticky{
-  background-size: 333% auto;
-  background-position: 30% center;
+.event-page-wrapper .story-bg{
+  aspect-ratio: auto;
+  min-height: 100vh;
   padding: 80px 0;
 }
-.event-page-wrapper .story-text-wrap{
-  display: block;
+.event-page-wrapper .story-panel{
+  flex-direction: column;
+  gap: 24px;
   width: 94%;
-  margin: 0 auto;
-  background-color: rgba(0, 0, 0, 0.55);
-  border-radius: 16px;
   padding: 24px 20px;
 }
-.event-page-wrapper .story-text-img{
-  width: 100%;
-  max-width: none;
-  margin-bottom: 24px;
-  background-color: transparent;
-  border-radius: 0;
-  padding: 0;
-}
-.event-page-wrapper .story-text-img:last-child{ margin-bottom: 0; }
+.event-page-wrapper .story-text-img{ width: 100%; }
+.event-page-wrapper .story-btns{ width: 100%; gap: 14px; }
+.event-page-wrapper .btn-info{ font-size: 16px; padding: 15px 20px; }
 }
 
 /* 6. Registration Form 區（自訂表單 → Power Automate → SharePoint List） */
@@ -368,42 +396,14 @@ html, body{
   <section class="section-hero">
     <div class="hero-media-wrap">
       <img class="hero-media hero-media-desktop" src="2-pc.jpg" alt="活動主視覺（桌機版）" />
-      <img class="hero-media hero-media-mobile" src="2-mb.png" alt="活動主視覺（手機版）" />
+      <img class="hero-media hero-media-mobile" src="2-mb.jpg" alt="活動主視覺（手機版）" />
     </div>
     <div class="hero-cta-wrap">
       <button type="button" id="scrollToRegistrationBtn" class="btn-cta">立即報名</button>
     </div>
   </section>
 
-  <!-- 3. 主題一：《獅紀：百變》卡片輪播 -->
-  <section class="section-theme theme1">
-    <h2 class="theme-title">《獅紀：百變》</h2>
-    <p class="theme-subtitle">有 吃 有 玩 還 有 得 拿</p>
-    <div class="card-carousel">
-      <div class="card">
-        <img src="3-1-food.jpg" alt="百變活動一" decoding="async" />
-        <div class="card-text">美食饗宴<br>2F 太陽廳</div>
-      </div>
-      <div class="card">
-        <img src="3-2-360.jpg" alt="百變活動二" decoding="async" />
-        <div class="card-text">360度拍照體驗<br>5F</div>
-      </div>
-      <div class="card">
-        <img src="3-3-g.jpg" alt="百變活動三" decoding="async" />
-        <div class="card-text">試膽體驗<br>5F 後台</div>
-      </div>
-      <div class="card">
-        <img src="3-4-ft.jpg" alt="百變活動四" decoding="async" />
-        <div class="card-text">現場占卜<br>5F 包廂</div>
-      </div>
-      <div class="card">
-        <img src="3-5-paint.jpg" alt="百變活動五" decoding="async" />
-        <div class="card-text">變裝似顏繪<br>5F 包廂</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. 主題二：《獅紀：無界》卡片輪播 -->
+  <!-- 3. 主題：《獅紀：無界》卡片輪播（原第 4 區，移到上方） -->
   <section class="section-theme theme2">
     <h2 class="theme-title">《獅紀：無界》</h2>
     <p class="theme-subtitle">五 大 AI 議 題 探 索</p>
@@ -431,12 +431,23 @@ html, body{
     </div>
   </section>
 
-  <!-- 5. 背景圖 A 區：桌機左右並排、手機上下堆疊 -->
+  <!-- 4. 主題：《獅紀：百變》單張主圖（原第 3 區，移到下方） -->
+  <section class="section-theme theme1">
+    <h2 class="theme-title">《獅紀：百變》</h2>
+    <p class="theme-subtitle">活 動 精 心 策 劃 敬 請 期 待</p>
+    <img class="theme-single-img theme-single-desktop" src="n-4-pc.jpg" alt="獅紀：百變（桌機版）" />
+    <img class="theme-single-img theme-single-mobile" src="n-4-mb.png" alt="獅紀：百變（手機版）" />
+  </section>
+
+  <!-- 5. 背景圖 A 區：地址時間 + Google Map / 交通資訊按鈕 -->
   <section class="section-story">
-    <div class="story-sticky" style="background-image: url('%E8%83%8C%E6%99%AFA.png');">
-      <div class="story-text-wrap">
-        <img id="storyText1" class="story-text-img" src="%E5%9C%B0%E5%9D%80%E6%99%82%E9%96%93-%E6%96%87%E5%AD%97.png" alt="活動地址時間" />
-        <img id="storyText2" class="story-text-img" src="%E6%B4%BB%E5%8B%95%E6%B5%81%E7%A8%8B-%E6%96%87%E5%AD%97.png" alt="活動流程" />
+    <div class="story-bg" style="background-image: url('%E8%83%8C%E6%99%AFA.png');">
+      <div class="story-panel">
+        <img class="story-text-img" src="%E5%9C%B0%E5%9D%80%E6%99%82%E9%96%93-%E6%96%87%E5%AD%97.png" alt="活動地址時間" />
+        <div class="story-btns">
+          <a class="btn-info" href="https://maps.app.goo.gl/ZDPSvBSiCi5CywAcA" target="_blank" rel="noopener noreferrer">Google Map</a>
+          <a class="btn-info" href="https://tpac.org.taipei/traffic-drive" target="_blank" rel="noopener noreferrer">交通資訊</a>
+        </div>
       </div>
     </div>
   </section>
@@ -540,7 +551,7 @@ document.addEventListener('DOMContentLoaded', function(){
       })
       .then(function(res){
         if(res.ok){
-          showMsg('✅ 報名成功，感謝您的參與！', true);
+          showMsg('✅ 報名成功！確認信與活動行事曆邀請已寄至您的信箱。', true);
           form.reset();
         } else {
           console.error('送出失敗，狀態碼：', res.status);
